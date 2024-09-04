@@ -48,12 +48,8 @@ class TestBurger:
             '= sauce hot sauce =\n'
             '= sauce sour cream =\n'
             '(==== black bun ====)\n'
+            '\n'
             'Price: 500'
         )
 
-        # Столкнулась с расхождением между ожидаемым и фактическим результатом из-за добавленной пустой строки перед Price.
-        # Решила проблему удалением строки из фактического результата
-
-        actual_receipt = burger.get_receipt()
-
-        assert '\n'.join(filter(None, actual_receipt.split('\n'))) == expected_receipt
+        assert burger.get_receipt() == expected_receipt

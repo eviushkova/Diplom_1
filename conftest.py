@@ -1,9 +1,6 @@
 from unittest.mock import Mock
 import pytest
-
 from data import BUN_DATA, INGREDIENT_DATA
-from praktikum.bun import Bun
-from praktikum.ingredient import Ingredient
 
 
 @pytest.fixture
@@ -33,13 +30,3 @@ def mock_ingredients():
         mock_ingredient.get_price.return_value = data[2]
         mock_ingredients.append(mock_ingredient)
     return tuple(mock_ingredients)
-
-
-@pytest.fixture
-def mock_buns_for_db():
-    return [Bun(name, price) for name, price in BUN_DATA]
-
-
-@pytest.fixture
-def mock_ingredients_for_db():
-    return [Ingredient(ingredient_type, name, price) for ingredient_type, name, price in INGREDIENT_DATA]
